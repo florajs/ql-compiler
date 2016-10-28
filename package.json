@@ -33,9 +33,6 @@
       "email": "nico.kaiser@boerse-go.de"
     }
   ],
-  "engines": {
-    "node": ">=0.10.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.0",

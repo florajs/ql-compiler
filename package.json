@@ -41,6 +41,6 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "flora-request-parser": "^0.7.0"
+    "flora-request-parser": "^0.7.1"
   }
 }

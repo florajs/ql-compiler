@@ -142,7 +142,7 @@ describe('select compiler', () => {
         const select = 'instrument[quote.bid].value';
         const fn = compile.select(select);
 
-        xit('with single value present', () => {
+        it('with single value present', () => {
             expect(fn({instrument: {quote: {bid: {value: 42}}}})).to.eql({instrument: {quote: {bid: {value: 42}}}});
             expect(fn({instrument: {quote: {bid: {value: 42, name: 'xy'}}}})).to.eql({instrument: {quote: {bid: {value: 42}}}});
             expect(fn({instrument: {quote: {bid: {value: 42}, ask: {value: 23}}}})).to.eql({instrument: {quote: {bid: {value: 42}}}});

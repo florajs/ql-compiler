@@ -42,5 +42,8 @@
   },
   "dependencies": {
     "flora-request-parser": "^0.7.1"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

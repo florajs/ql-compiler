@@ -1,6 +1,8 @@
-import { expect } from 'chai';
+'use strict';
 
-import compile from '../src/index';
+const { expect } = require('chai');
+
+const compile = require('../lib/index');
 
 describe('select compiler', () => {
     it('should be a function', () => {

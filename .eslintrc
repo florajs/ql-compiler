@@ -1,10 +1,15 @@
 {
-  "extends": "airbnb",
-  "env": {
-    "browser": true,
-    "node": true
-  },
+  "extends": "airbnb-base",
   "rules": {
-    "indent": [2, 4]
+    "indent": [2, 4],
+    "strict": 0,
+    "comma-dangle": 0,
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "prefer-template": 0,
+    "no-plusplus": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 2015
   }
 }

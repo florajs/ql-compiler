@@ -4,18 +4,14 @@
   "description": "Compiler for Flora QL",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && npm run build:js",
-    "build:js": "babel src/ -d lib/",
-    "clean": "rimraf lib",
     "cover": "npm run cover:clean && npm run cover:mocha && npm run cover:check",
     "cover:clean": "rimraf coverage",
-    "cover:check": "babel-node ./node_modules/istanbul/lib/cli check-coverage",
-    "cover:mocha": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register --recursive test/*",
-    "lint": "eslint --ext .js src test",
-    "mocha": "mocha --compilers js:babel-register --recursive",
+    "cover:check": "node ./node_modules/istanbul/lib/cli check-coverage",
+    "cover:mocha": "node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- --recursive test/*",
+    "lint": "eslint --ext .js lib test",
+    "mocha": "mocha --recursive",
     "test": "npm run mocha --silent test",
-    "posttest": "npm run --silent cover",
-    "prepublish": "in-publish && safe-publish-latest && npm run build || not-in-publish"
+    "posttest": "npm run --silent cover"
   },
   "author": {
     "name": "BörseGo AG",
@@ -34,24 +30,17 @@
     }
   ],
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.0",
-    "babel-preset-airbnb": "^2.1.1",
     "bunyan": "^1.5.1",
     "chai": "^3.4.1",
     "eslint": "^3.9.0",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.1",
-    "in-publish": "^2.0.0",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^2.3.4",
+    "mocha": "^3.0.0",
     "mocha-bamboo-reporter": "^1.1.0",
-    "rimraf": "^2.5.4",
-    "safe-publish-latest": "^1.1.1"
+    "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "flora-request-parser": "^0.2.1"
+    "flora-request-parser": "^0.7.0"
   }
 }

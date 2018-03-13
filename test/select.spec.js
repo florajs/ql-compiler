@@ -11,7 +11,7 @@ describe('select compiler', () => {
 
     it('should generate a function', () => {
         const fn = compile.select('foo,bar');
-        expect(fn).to.be.a.function;
+        expect(fn).to.be.a('function');
     });
 
     describe('single attribute', () => {

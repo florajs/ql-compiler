@@ -11,7 +11,7 @@ describe('filter compiler', () => {
 
     it('should generate a function', () => {
         const fn = compile.filter('id=123');
-        expect(fn).to.be.a.function;
+        expect(fn).to.be.a('function');
     });
 
     describe('AND terms', () => {

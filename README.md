@@ -1,10 +1,8 @@
-Flora QL Compile
-================
+# Flora QL Compile
 
 Compiles a Flora Query Language statement into a function.
 
-Examples
---------
+## Examples
 
 ```js
 const compile = require('flora-ql-compile');
@@ -20,7 +18,6 @@ selectFn({ foo: 42, bar: { baz: 23, id: 1337 }, bla: 'blubb' })
 // => { foo: 42, bar: { baz: 23 } }
 ```
 
-License
--------
+## License
 
 [MIT](LICENSE)

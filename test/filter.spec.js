@@ -1,6 +1,8 @@
+/* global describe, it */
+
 'use strict';
 
-const { expect } = require('chai');
+const { expect } = require('chai');
 
 const compile = require('../lib/index');
 
@@ -19,43 +21,43 @@ describe('filter compiler', () => {
 
         it('should compile AND terms', () => {
             const fn = compile.filter(input);
-            expect(fn({id: 321, userId: 109369})).to.be.true;
-            expect(fn({id: 321, userId: 109368})).to.be.false;
-            expect(fn({id: 320, userId: 109369})).to.be.false;
-            expect(fn({id: 320, userId: 109368})).to.be.false;
+            expect(fn({ id: 321, userId: 109369 })).to.equal(true);
+            expect(fn({ id: 321, userId: 109368 })).to.equal(false);
+            expect(fn({ id: 320, userId: 109369 })).to.equal(false);
+            expect(fn({ id: 320, userId: 109368 })).to.equal(false);
         });
 
         it('should return false on incomplete inputs', () => {
             const fn = compile.filter(input);
-            expect(fn({id: 321})).to.be.false;
-            expect(fn({userId: 109368})).to.be.false;
+            expect(fn({ id: 321 })).to.equal(false);
+            expect(fn({ userId: 109368 })).to.equal(false);
         });
 
         it('should return false on empty inputs', () => {
             const fn = compile.filter(input);
-            expect(fn({})).to.be.false;
+            expect(fn({})).to.equal(false);
         });
     });
 
     describe('OR terms', () => {
-        var input = 'id=321 OR userId=109369';
+        const input = 'id=321 OR userId=109369';
 
         it('should compile OR terms', () => {
             const fn = compile.filter(input);
-            expect(fn({id: 321, userId: 109369})).to.be.true;
-            expect(fn({id: 321, userId: 109368})).to.be.true;
-            expect(fn({id: 320, userId: 109369})).to.be.true;
-            expect(fn({id: 320, userId: 109368})).to.be.false;
+            expect(fn({ id: 321, userId: 109369 })).to.equal(true);
+            expect(fn({ id: 321, userId: 109368 })).to.equal(true);
+            expect(fn({ id: 320, userId: 109369 })).to.equal(true);
+            expect(fn({ id: 320, userId: 109368 })).to.equal(false);
         });
 
         it('should work on incomplete (but satisfying) inputs', () => {
             const fn = compile.filter(input);
-            expect(fn({id: 321})).to.be.true;
+            expect(fn({ id: 321 })).to.equal(true);
         });
 
         it('should return false on empty inputs', () => {
             const fn = compile.filter(input);
-            expect(fn({})).to.be.false;
+            expect(fn({})).to.equal(false);
         });
     });
 
@@ -64,18 +66,18 @@ describe('filter compiler', () => {
 
         it('should be resolved', () => {
             const fn = compile.filter(input);
-            expect(fn({user: {id: 42}})).to.be.true;
-            expect(fn({user: {id: 43}})).to.be.false;
-            expect(fn({user: {}})).to.be.false;
-            expect(fn({user: 42})).to.be.false;
+            expect(fn({ user: { id: 42 } })).to.equal(true);
+            expect(fn({ user: { id: 43 } })).to.equal(false);
+            expect(fn({ user: {} })).to.equal(false);
+            expect(fn({ user: 42 })).to.equal(false);
         });
 
         it('should support arrays in value', () => {
             const fn = compile.filter(input);
-            expect(fn({user: [{id: 42}]})).to.be.true;
-            expect(fn({user: [{id: 43}]})).to.be.false;
-            expect(fn({user: []})).to.be.false;
-            expect(fn({user: {}})).to.be.false;
+            expect(fn({ user: [{ id: 42 }] })).to.equal(true);
+            expect(fn({ user: [{ id: 43 }] })).to.equal(false);
+            expect(fn({ user: [] })).to.equal(false);
+            expect(fn({ user: {} })).to.equal(false);
         });
     });
 });

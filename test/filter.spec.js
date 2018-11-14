@@ -4,7 +4,7 @@
 
 const { expect } = require('chai');
 
-const compile = require('../lib/index');
+const compile = require('../');
 
 describe('filter compiler', () => {
     it('should be a function', () => {

@@ -1,3 +1,6 @@
 'use strict';
 
-module.exports = require('./lib/index');
+const filter = require('./lib/filter');
+const select = require('./lib/select');
+
+module.exports = { filter, select };

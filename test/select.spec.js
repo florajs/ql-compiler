@@ -138,6 +138,15 @@ describe('select compiler', () => {
         it('with multiple values present', () => {
             expect(fn({ quote: { bid: { value: 42 }, ask: { value: 23 } } })).to.eql({ quote: { bid: { value: 42 } } });
         });
+
+        it('with parent null value', () => {
+            expect(fn({ quote: { bid: null, ask: { value: 23 } } })).to.eql({ quote: { bid: null } });
+            expect(fn({ quote: null })).to.eql({ quote: null });
+        });
+
+        it('with parent non-object value', () => {
+            expect(fn({ quote: 123 })).to.eql({ quote: null });
+        });
     });
 
     describe('nested attributes (mixed notation)', () => {

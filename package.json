@@ -35,7 +35,7 @@
     "prettier": "^1.18.2"
   },
   "dependencies": {
-    "flora-request-parser": "^2.2.2"
+    "flora-request-parser": "^2.2.3"
   },
   "engines": {
     "node": ">=1o"

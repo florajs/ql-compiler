@@ -61,6 +61,16 @@ describe('filter compiler', () => {
         });
     });
 
+    describe('list values', () => {
+        const input = 'id=23,42';
+        it('should compile list values to OR', () => {
+            const fn = compile.filter(input);
+            expect(fn({ id: 23 })).to.equal(true);
+            expect(fn({ id: 42 })).to.equal(true);
+            expect(fn({ id: 123 })).to.equal(false);
+        });
+    });
+
     describe('nested attributes', () => {
         const input = 'user.id=42';
 

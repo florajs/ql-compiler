@@ -1,4 +1,4 @@
-# Flora QL Compile
+# flora-ql-compile
 
 Compiles a Flora Query Language statement into a function.
 

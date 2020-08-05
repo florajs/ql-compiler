@@ -54,7 +54,12 @@ describe('select compiler', () => {
         it('input array', () => {
             const fn = compile.select(select);
             expect(fn([{ id: 1 }, { id: 2 }])).to.eql([{ id: 1 }, { id: 2 }]);
-            expect(fn([{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }])).to.eql([{ id: 1 }, { id: 2 }]);
+            expect(
+                fn([
+                    { id: 1, name: 'foo' },
+                    { id: 2, name: 'bar' }
+                ])
+            ).to.eql([{ id: 1 }, { id: 2 }]);
         });
     });
 

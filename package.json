@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "eslint . && mocha"
+    "pretest": "npm run lint",
+    "test": "mocha"
   },
   "pre-commit": "test",
   "author": {
@@ -25,19 +26,19 @@
     }
   ],
   "devDependencies": {
-    "bunyan": "^1.8.12",
+    "bunyan": "^1.8.14",
     "chai": "^4.2.0",
-    "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.2.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "mocha": "^6.2.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.1.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.18.2"
+    "prettier": "^2.0.5"
   },
   "dependencies": {
-    "flora-request-parser": "^2.2.3"
+    "flora-request-parser": "^2.2.4"
   },
   "engines": {
-    "node": ">=1o"
+    "node": ">=10"
   }
 }

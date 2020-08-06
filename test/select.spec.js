@@ -120,8 +120,12 @@ describe('select compiler', () => {
         it('with scalar input', () => {
             const fn = compile.select(select);
             expect(fn({ instrument: { underlying: { id: 42 } } })).to.eql({ instrument: { underlying: { id: 42 } } });
-            expect(fn({ instrument: { underlying: { id: 42 } }, name: 'foo' })).to.eql({ instrument: { underlying: { id: 42 } } });
-            expect(fn({ instrument: { underlying: { id: 42, name: 'foo' } } })).to.eql({ instrument: { underlying: { id: 42 } } });
+            expect(fn({ instrument: { underlying: { id: 42 } }, name: 'foo' })).to.eql({
+                instrument: { underlying: { id: 42 } }
+            });
+            expect(fn({ instrument: { underlying: { id: 42, name: 'foo' } } })).to.eql({
+                instrument: { underlying: { id: 42 } }
+            });
         });
 
         it('with empty input', () => {
@@ -159,7 +163,9 @@ describe('select compiler', () => {
         const fn = compile.select(select);
 
         it('with single value present', () => {
-            expect(fn({ instrument: { quote: { bid: { value: 42 } } } })).to.eql({ instrument: { quote: { bid: { value: 42 } } } });
+            expect(fn({ instrument: { quote: { bid: { value: 42 } } } })).to.eql({
+                instrument: { quote: { bid: { value: 42 } } }
+            });
             expect(fn({ instrument: { quote: { bid: { value: 42, name: 'xy' } } } })).to.eql({
                 instrument: { quote: { bid: { value: 42 } } }
             });
@@ -178,8 +184,12 @@ describe('select compiler', () => {
 
         it('with scalar input', () => {
             expect(fn({ instrument: { underlying: { id: 42 } } })).to.eql({ instrument: { underlying: { id: 42 } } });
-            expect(fn({ instrument: { underlying: { id: 42 } }, name: 'foo' })).to.eql({ instrument: { underlying: { id: 42 } } });
-            expect(fn({ instrument: { underlying: { id: 42, name: 'foo' } } })).to.eql({ instrument: { underlying: { id: 42 } } });
+            expect(fn({ instrument: { underlying: { id: 42 } }, name: 'foo' })).to.eql({
+                instrument: { underlying: { id: 42 } }
+            });
+            expect(fn({ instrument: { underlying: { id: 42, name: 'foo' } } })).to.eql({
+                instrument: { underlying: { id: 42 } }
+            });
             expect(fn({ instrument: { underlying: { id: 42, name: 'foo' } }, teaser: 'bla' })).to.eql({
                 instrument: { underlying: { id: 42 } },
                 teaser: 'bla'
@@ -204,7 +214,9 @@ describe('select compiler', () => {
         });
 
         it('with multiple values present', () => {
-            expect(fn({ quote: { bid: { value: 42 }, ask: { value: 23 } } })).to.eql({ quote: { bid: { value: 42 }, ask: { value: 23 } } });
+            expect(fn({ quote: { bid: { value: 42 }, ask: { value: 23 } } })).to.eql({
+                quote: { bid: { value: 42 }, ask: { value: 23 } }
+            });
         });
     });
 
@@ -213,7 +225,9 @@ describe('select compiler', () => {
         const fn = compile.select(select);
 
         it('with single value present', () => {
-            expect(fn({ instrument: { quote: { bid: { value: 42 } } } })).to.eql({ instrument: { quote: { bid: { value: 42 } } } });
+            expect(fn({ instrument: { quote: { bid: { value: 42 } } } })).to.eql({
+                instrument: { quote: { bid: { value: 42 } } }
+            });
             expect(fn({ instrument: { quote: { bid: { date: '2016-01-01' } } } })).to.eql({
                 instrument: { quote: { bid: { date: '2016-01-01' } } }
             });
@@ -224,8 +238,16 @@ describe('select compiler', () => {
                 instrument: { quote: { bid: { value: 42 }, ask: { value: 23 } } }
             });
             expect(
-                fn({ instrument: { quote: { bid: { value: 42, date: '2016-01-01' }, ask: { value: 23, date: '2016-01-02' } } } })
-            ).to.eql({ instrument: { quote: { bid: { value: 42, date: '2016-01-01' }, ask: { value: 23, date: '2016-01-02' } } } });
+                fn({
+                    instrument: {
+                        quote: { bid: { value: 42, date: '2016-01-01' }, ask: { value: 23, date: '2016-01-02' } }
+                    }
+                })
+            ).to.eql({
+                instrument: {
+                    quote: { bid: { value: 42, date: '2016-01-01' }, ask: { value: 23, date: '2016-01-02' } }
+                }
+            });
         });
     });
 });

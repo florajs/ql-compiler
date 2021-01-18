@@ -1,5 +1,9 @@
 # flora-ql-compile
 
+![](https://github.com/godmodelabs/flora-ql-compile/workflows/ci/badge.svg)
+[![NPM version](https://img.shields.io/npm/v/flora-ql-compile.svg?style=flat)](https://www.npmjs.com/package/flora-ql-compile)
+[![NPM downloads](https://img.shields.io/npm/dm/flora-ql-compile.svg?style=flat)](https://www.npmjs.com/package/flora-ql-compile)
+
 Compiles a Flora Query Language statement into a function.
 
 ## Examples

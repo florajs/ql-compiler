@@ -1,6 +1,6 @@
 {
   "name": "flora-ql-compile",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Compiler for Flora QL",
   "main": "index.js",
   "scripts": {

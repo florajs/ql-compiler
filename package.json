@@ -38,6 +38,6 @@
     "flora-request-parser": "^2.3.1"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }

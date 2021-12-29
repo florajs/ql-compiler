@@ -1,8 +1,5 @@
 .DS_Store
-npm-debug.log*
-lib-cov
-coverage
+.vscode
 node_modules
-.idea
+build
 package-lock.json
-

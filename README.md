@@ -1,15 +1,15 @@
-# flora-ql-compile
+# @florajs/ql-compiler
 
 ![](https://github.com/florajs/ql-compiler/workflows/ci/badge.svg)
-[![NPM version](https://img.shields.io/npm/v/flora-ql-compile.svg?style=flat)](https://www.npmjs.com/package/flora-ql-compile)
-[![NPM downloads](https://img.shields.io/npm/dm/flora-ql-compile.svg?style=flat)](https://www.npmjs.com/package/flora-ql-compile)
+[![NPM version](https://img.shields.io/npm/v/@florajs/ql-compiler.svg?style=flat)](https://www.npmjs.com/package/@florajs/ql-compiler)
+[![NPM downloads](https://img.shields.io/npm/dm/@florajs/ql-compiler.svg?style=flat)](https://www.npmjs.com/package/@florajs/ql-compiler)
 
 Compiles a Flora Query Language statement into a function.
 
 ## Examples
 
 ```js
-const compile = require('flora-ql-compile');
+const compile = require('@florajs/ql-compiler');
 
 // Use a Flora filter as function
 const filterFn = compile.filter('id=321 AND userId=109369');

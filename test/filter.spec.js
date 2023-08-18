@@ -14,6 +14,14 @@ describe('filter compiler', () => {
         expect(fn).to.be.a('function');
     });
 
+    describe('NOT terms', () => {
+        it('should compile NOT terms', () => {
+            const fn = compile.filter('id!=123');
+            expect(fn({ id: 123 })).to.equal(false);
+            expect(fn({ id: 456 })).to.equal(true);
+        });
+    });
+
     describe('AND terms', () => {
         const input = 'id=321 AND userId=109369';
 
@@ -60,12 +68,18 @@ describe('filter compiler', () => {
     });
 
     describe('list values', () => {
-        const input = 'id=23,42';
         it('should compile list values to OR', () => {
-            const fn = compile.filter(input);
+            const fn = compile.filter('id=23,42');
             expect(fn({ id: 23 })).to.equal(true);
             expect(fn({ id: 42 })).to.equal(true);
             expect(fn({ id: 123 })).to.equal(false);
+        });
+
+        it('should compile negated list values to OR', () => {
+            const fn = compile.filter('id!=23,42');
+            expect(fn({ id: 23 })).to.equal(false);
+            expect(fn({ id: 42 })).to.equal(false);
+            expect(fn({ id: 123 })).to.equal(true);
         });
     });
 

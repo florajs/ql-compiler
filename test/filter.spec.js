@@ -102,7 +102,7 @@ describe('filter compiler', () => {
             expect(fn({ user: {} })).to.equal(false);
         });
 
-        xit('should apply NOT to all items in arrays', () => {
+        it('should apply NOT to all items in arrays', () => {
             const fn = compile.filter('foo.id!=13');
             expect(fn({ foo: { id: 13 } })).to.equal(false);
             expect(fn({ foo: { id: 42 } })).to.equal(true);
@@ -111,7 +111,7 @@ describe('filter compiler', () => {
             expect(fn({ foo: [{ id: 42 }, { id: 13 }] })).to.equal(false);
         });
 
-        xit('should apply NOT to all items in arrays (array values)', () => {
+        it('should apply NOT to all items in arrays (array values)', () => {
             const fn = compile.filter('foo.id!=13,14');
             expect(fn({ foo: { id: 13 } })).to.equal(false);
             expect(fn({ foo: { id: 14 } })).to.equal(false);
